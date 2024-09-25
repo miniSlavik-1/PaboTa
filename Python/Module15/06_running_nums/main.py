@@ -1,7 +1,9 @@
+import random
+
 sdvig = int(input("Сдвиг: "))
-tablo = [1, 2, 3, 4, 5]
+
+tablo = [random.randint(0,10) for i in range(5)]
 print("Изначальный список:", tablo)
-for i in range(sdvig):
-    tablo.append(tablo[0])
-    tablo.pop(0)
-print("Сдвинутый список:", tablo)
+
+new_table = [tablo[(x + sdvig) % len(tablo)] for x in range(len(tablo))]
+print("Сдвинутый список:", new_table)

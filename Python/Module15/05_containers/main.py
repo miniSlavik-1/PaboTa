@@ -1,8 +1,8 @@
 num = int(input("Количество контейнеров: "))
-containers = []
-for n in range(num):
-    cont = int(input("Введите вес контейнера: "))
-    containers.append(cont)
+containers = [int(input("Введите вес контейнера: ")) for x in range(num)]
+# for n in range(num):
+#     cont = int(input("Введите вес контейнера: "))
+#     containers.append(cont)
 
 x = int(input("Введите вес нового контейнера: "))
 c = 1
