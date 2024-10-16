@@ -6,12 +6,17 @@ while was != "Пора спать":
     was = input("Гость пришёл или ушёл: ")
     if was == "пришёл":
         wer = input("Имя гостя: ")
-        guests.append(wer)
+        if len(guests) <= 6:
+            guests.append(wer)
+        else:
+            print(f"Прости, {wer}, но мест нет")
     elif was == "ушёл":
         wer = input("Имя гостя: ")
-        guests.remove(wer)
+        if wer in guests:
+            guests.remove(wer)
+        else:
+            print("Такого гостя нет")
 
-if len(guests) <= 6:
-    print("Вечеринка закончилась, все легли спать.")
-else:
-    print("Отдохнуть сейчас не получится: рядом бродят монстры")
+
+
+print("Вечеринка закончилась, все легли спать.")

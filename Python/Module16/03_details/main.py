@@ -3,8 +3,12 @@ shop = [['каретка', 1200], ['шатун', 1000], ['седло', 300],
         ['обод', 2000], ['шатун', 200], ['седло', 2700]]
 
 fragen = input("Название детали: ")
-chislo = int(input("Количество деталей: "))
 
-for i in shop:
-        if fragen == i[0]:
-                print("Общая стоимость:", i[1] * chislo)
+p = 0
+c = 0
+for detal in shop:
+        if fragen == detal[0]:
+                p += detal[1]
+                c += 1
+print("Кол-во деталей -", c)
+print("Общая стоимость -", p)
