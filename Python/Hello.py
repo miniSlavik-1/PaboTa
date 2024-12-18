@@ -1,55 +1,14 @@
-a = [7.98,
-6.12,
-9.30,
-6.20,
-7.16,
-7.32,
-6.99,
-8.37,
-6.22,
-6.16,
-7.19,
-6.67,
-7.49,
-7.77,
-6.33,
-8.56,
-6.97,
-6.32,
-7.19,
-7.76,
-7.71,
-6.37,
-7.99,
-7.10,
-5.09,
-7.33,
-6.39,
-7.17,
-8.36,
-7.47,
-7.66,
-6.85,
-3.83,
-7.88,
-5.80,
-6.10,
-8.04,
-6.21,
-7.43,
-6.19,
-6.65,
-6.09,
-4.90,
-7.67,
-6.22,
-7.34,
-5.63,
-3.28,
-8.24,
-]
-sum = 0
-for i in range(len(a)):
-    k = a[i] - 6.88
-    sum += k**2
-print(sum)
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP  # Импортируем шифратор для RSA
+
+
+def encrypt(public_key, plaintext):
+    """Шифрование сообщения с использованием открытого ключа"""
+    rsa_public_key = RSA.import_key(public_key)  # Импортируем открытый ключ
+    cipher = PKCS1_OAEP.new(rsa_public_key)  # Создаем объект шифрования
+    ciphertext = cipher.encrypt(plaintext.encode('utf-8'))  # Шифруем сообщение
+    return ciphertext  # Возвращаем зашифрованное сообщение
+
+text = 'Hello Vladimir!!!'
+pulic_key = b'-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC95kajxtbaGNWwagRF8dZW4Vy8\nyfxTDiyyChAho0koQ2M4U14aFFdupN63Y+YWJRbWvD8E5wn4E1HKTD+7Q1dmmZKO\nM/BXJaDO0EVbyW3h8RioOCD1R/Qt/8fsCGhBhYI28zTRTgGfyRKvwQwwxblrumGt\nJEjn7AB/pCH1QhPQmQIDAQAB\n-----END PUBLIC KEY-----'
+print(encrypt(pulic_key, text))
