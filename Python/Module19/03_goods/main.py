@@ -25,8 +25,13 @@ store = {
 }
 
 
-# TODO здесь писать код
-
+for i in goods:
+    sum = 0
+    num = 0
+    for j in range(len(store[goods[i]])):
+        sum += store[goods[i]][j]["price"] * store[goods[i]][j]["quantity"]
+        num += store[goods[i]][j]["quantity"]
+    print(i, "-", num, "штук, стоимость", sum, "рублей")
 
 
 
