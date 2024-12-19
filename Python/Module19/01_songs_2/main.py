@@ -1,3 +1,12 @@
+def songs(n):
+    long = 0.0
+    for i in range(n):
+        a = input("Название песни: ")
+        if a in violator_songs:
+            long += violator_songs[a]
+    return long
+
+
 violator_songs = {
     'World in My Eyes': 4.86,
     'Sweetest Perfection': 4.43,
@@ -10,4 +19,5 @@ violator_songs = {
     'Clean': 5.83
 }
 
-# TODO здесь писать код
+n = int(input("Сколько песен выбрать? "))
+print(songs(n))
